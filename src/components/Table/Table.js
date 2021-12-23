@@ -1,10 +1,6 @@
 import accounts from '../../accounts.json';
 
 const Table = () => {
-  accounts.map(account => {
-    return console.log(account);
-  });
-
   return (
     <div>
       <table>
