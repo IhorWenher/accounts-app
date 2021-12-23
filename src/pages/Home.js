@@ -1,5 +1,7 @@
+import Table from '../components/Table';
+
 const Home = () => {
-  return <div>Home</div>
-}
+  return <div>{<Table />}</div>;
+};
 
 export default Home;

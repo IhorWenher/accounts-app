@@ -1,0 +1,41 @@
+[{
+        "id": 1,
+        "number": 12345,
+        "company": "Apple",
+        "gameName": "Snakes",
+        "sum": 1234,
+        "currency": "Euro",
+        "exposureTime": "12:00 12.12.2021",
+        "paymentTime": "14:00 12.12.2021"
+    },
+    {
+        "id": 2,
+        "number": 12346,
+        "company": "Google",
+        "gameName": "Snakes",
+        "sum": 3334,
+        "currency": "Dollar",
+        "exposureTime": "13:00 12.12.2021",
+        "paymentTime": "16:00 12.12.2021"
+    },
+    {
+        "id": 3,
+        "number": 12347,
+        "company": "Tesla",
+        "gameName": "Snakes",
+        "sum": 4342,
+        "currency": "Dollar",
+        "exposureTime": "17:00 12.12.2021",
+        "paymentTime": "18:00 12.12.2021"
+    },
+    {
+        "id": 4,
+        "number": 12348,
+        "company": "SpaceX",
+        "gameName": "Snakes",
+        "sum": 2345,
+        "currency": "Euro",
+        "exposureTime": "11:00 12.12.2021",
+        "paymentTime": "13:00 12.12.2021"
+    }
+]
