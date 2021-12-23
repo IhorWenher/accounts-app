@@ -21,7 +21,7 @@ const AccountModal = ({ onSubmit, onCancel }) => {
         break;
 
       case 'sum':
-        setSum(value);
+        setSum(Number(value));
         break;
 
       case 'currency':
@@ -36,6 +36,10 @@ const AccountModal = ({ onSubmit, onCancel }) => {
   const handleSubmit = event => {
     event.preventDefault();
 
+    if (gameName === '' || sum === '') {
+      return alert('Enter data!');
+    }
+
     const account = {
       company: company,
       gameName: gameName,
@@ -46,14 +50,20 @@ const AccountModal = ({ onSubmit, onCancel }) => {
     onSubmit();
 
     console.log(account);
+    reset();
+  };
+
+  const reset = () => {
+    setCompany('Компания 1');
+    setGameName('');
+    setSum('');
+    setCurrency('Euro');
   };
 
   return (
     <form className={Styles.form} action="" onSubmit={handleSubmit}>
-      <select name="company" onChange={handleChange}>
-        <option value="Компания 1" selected>
-          Компания 1
-        </option>
+      <select name="company" value="Компания 1" onChange={handleChange}>
+        <option value="Компания 1">Компания 1</option>
         <option value="Компания 2">Компания 2</option>
         <option value="Компания 3">Компания 3</option>
       </select>
@@ -69,10 +79,8 @@ const AccountModal = ({ onSubmit, onCancel }) => {
         placeholder="Введите сумму оплаты"
         onChange={handleChange}
       />
-      <select name="currency" onChange={handleChange}>
-        <option value="Euro" selected>
-          Euro
-        </option>
+      <select name="currency" value="Euro" onChange={handleChange}>
+        <option value="Euro">Euro</option>
         <option value="Dollar">Dollar</option>
       </select>
 
