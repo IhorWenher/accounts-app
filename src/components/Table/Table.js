@@ -21,6 +21,20 @@ const Table = () => {
     dispatch(accountsOperations.updateAccount(id, { payment: payment }));
   };
 
+  const getCreatedDate = el => {
+    const separeteAr = el.createdAt.split('T').reverse();
+    const time = separeteAr[0].split('.')[0];
+    const date = separeteAr[1].split('-').reverse().join(':');
+    return `${date} в ${time}`;
+  };
+
+  const getUpdatedDate = el => {
+    const separeteAr = el.updatedAt.split('T').reverse();
+    const time = separeteAr[0].split('.')[0];
+    const date = separeteAr[1].split('-').reverse().join(':');
+    return `${date} в ${time}`;
+  };
+
   return (
     <div className={Styles.container}>
       <h1>Таблица счетов</h1>
@@ -45,6 +59,8 @@ const Table = () => {
         <tbody>
           {accounts &&
             accounts.map(account => {
+              const createdDate = getCreatedDate(account);
+              const updatedDate = getUpdatedDate(account);
               return (
                 <tr key={account._id}>
                   <td>{account.accountNumberFront}</td>
@@ -52,7 +68,7 @@ const Table = () => {
                   <td>{account.gameName}</td>
                   <td>{account.sum}</td>
                   <td>{account.currency}</td>
-                  <td>{account.createdAt}</td>
+                  <td>{createdDate}</td>
                   <td>
                     {!account.payment ? (
                       <PaymentButton
@@ -61,7 +77,7 @@ const Table = () => {
                         }
                       />
                     ) : (
-                      account.updatedAt
+                      updatedDate
                     )}
                   </td>
                 </tr>
