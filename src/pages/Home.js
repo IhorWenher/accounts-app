@@ -13,15 +13,15 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <>
       <Table />
       <Button onClick={toggleModal} />
       {showModal && (
         <Backdrop>
-          <AccountModal onSubmit={toggleModal} onCancel={toggleModal} />
+          <AccountModal togleModal={toggleModal} />
         </Backdrop>
       )}
-    </div>
+    </>
   );
 };
 

@@ -1,11 +1,16 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { accountsOperations } from '../../redux/accounts';
+
 import Styles from './Account.module.css';
 
-const AccountModal = ({ onSubmit, onCancel }) => {
-  const [company, setCompany] = useState('Компания 1');
+const AccountModal = ({ togleModal }) => {
+  const [company, setCompany] = useState('Nvidia');
   const [gameName, setGameName] = useState('');
   const [sum, setSum] = useState('');
   const [currency, setCurrency] = useState('Euro');
+
+  const dispatch = useDispatch();
 
   const handleChange = event => {
     event.preventDefault();
@@ -47,14 +52,14 @@ const AccountModal = ({ onSubmit, onCancel }) => {
       currency: currency,
     };
 
-    onSubmit();
+    togleModal();
 
-    console.log(account);
+    dispatch(accountsOperations.addAccount(account));
     reset();
   };
 
   const reset = () => {
-    setCompany('Компания 1');
+    setCompany('Nvidia');
     setGameName('');
     setSum('');
     setCurrency('Euro');
@@ -62,32 +67,47 @@ const AccountModal = ({ onSubmit, onCancel }) => {
 
   return (
     <form className={Styles.form} action="" onSubmit={handleSubmit}>
-      <select name="company" value="Компания 1" onChange={handleChange}>
-        <option value="Компания 1">Компания 1</option>
-        <option value="Компания 2">Компания 2</option>
-        <option value="Компания 3">Компания 3</option>
+      <p className={Styles.p}>Введите информацию</p>
+      <select
+        className={Styles.select}
+        name="company"
+        value="Nvidia"
+        onChange={handleChange}
+      >
+        <option value="Nvidia">Nvidia</option>
+        <option value="Activision">Activision</option>
+        <option value="Easports">Easports</option>
       </select>
       <input
+        className={Styles.input}
         name="gameName"
         type="text"
         placeholder="Введите название игры"
         onChange={handleChange}
       />
       <input
+        className={Styles.input}
         name="sum"
         type="number"
         placeholder="Введите сумму оплаты"
         onChange={handleChange}
       />
-      <select name="currency" value="Euro" onChange={handleChange}>
+      <select
+        className={Styles.select}
+        name="currency"
+        value="Euro"
+        onChange={handleChange}
+      >
         <option value="Euro">Euro</option>
         <option value="Dollar">Dollar</option>
       </select>
 
-      <input type="submit" value="Добавить" className={Styles.btn} />
-      <button type="button" className={Styles.btn} onClick={onCancel}>
-        Отмена
-      </button>
+      <div className={Styles.buttons}>
+        <input type="submit" value="Добавить" />
+        <button type="button" className={Styles.btn} onClick={togleModal}>
+          Отмена
+        </button>
+      </div>
     </form>
   );
 };

@@ -1,7 +1,7 @@
 import { ReactSVG } from 'react-svg';
 import svgPlus from '../../images/plus-icon.svg';
 
-import Styles from '../Button/Button.module.css';
+import Styles from './Button.module.css';
 
 const Button = ({ onClick }) => {
   return (
