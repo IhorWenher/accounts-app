@@ -12,7 +12,7 @@ import {
   updateAccountError,
 } from './accounts-actions';
 
-axios.defaults.baseURL = 'http://localhost:3500';
+axios.defaults.baseURL = 'https://accounts-bar-backend.herokuapp.com';
 
 const fetchAccounts = () => async dispatch => {
   dispatch(fetchAccountsRequest());
