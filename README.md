@@ -1,1 +1,1 @@
-Welcome to ACOUNTS-BAR! Developed with React.js and Nest.js.
+Welcome to the ACCOUNTS-BAR! Developed with React.js and Nest.js.
