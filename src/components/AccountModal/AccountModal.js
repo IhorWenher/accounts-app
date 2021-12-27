@@ -59,21 +59,16 @@ const AccountModal = ({ togleModal }) => {
   };
 
   const reset = () => {
-    setCompany('Nvidia');
+    setCompany('');
     setGameName('');
     setSum('');
-    setCurrency('Euro');
+    setCurrency('');
   };
 
   return (
     <form className={Styles.form} action="" onSubmit={handleSubmit}>
       <p className={Styles.p}>Введите информацию</p>
-      <select
-        className={Styles.select}
-        name="company"
-        value="Nvidia"
-        onChange={handleChange}
-      >
+      <select className={Styles.select} name="company" onChange={handleChange}>
         <option value="Nvidia">Nvidia</option>
         <option value="Activision">Activision</option>
         <option value="Easports">Easports</option>
@@ -92,12 +87,7 @@ const AccountModal = ({ togleModal }) => {
         placeholder="Введите сумму оплаты"
         onChange={handleChange}
       />
-      <select
-        className={Styles.select}
-        name="currency"
-        value="Euro"
-        onChange={handleChange}
-      >
+      <select className={Styles.select} name="currency" onChange={handleChange}>
         <option value="Euro">Euro</option>
         <option value="Dollar">Dollar</option>
       </select>
